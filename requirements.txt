@@ -6,8 +6,12 @@ gunicorn>=21.2.0
 # AI Integration
 openai>=1.14.0
 
+# Monitoring
+prometheus-client>=0.17.1
+
 # Development
 pytest>=7.4.0
+pytest-mock>=3.14.1
 black>=23.7.0
 flake8>=6.1.0
 
