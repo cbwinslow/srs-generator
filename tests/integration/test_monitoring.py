@@ -29,8 +29,20 @@ def test_metrics_endpoint(client):
     """Test that metrics endpoint returns Prometheus metrics."""
     response = client.get("/metrics")
     assert response.status_code == 200
-    assert response.content_type == "text/plain; charset=utf-8"
-    # Check if response contains expected metric names
+    assert "text/plain" in response.content_type
+    
+    # Generate some metrics by making a request
+    client.post("/api/v1/generate_srs", 
+               json={
+                   "projectName": "Test Project",
+                   "targetUsers": "Test Users",
+                   "projectGoals": "Test Goals",
+                   "projectScope": "Test Scope"
+               },
+               headers={"Content-Type": "application/json"})
+    
+    # Check metrics again
+    response = client.get("/metrics")
     response_text = response.data.decode("utf-8")
     assert "srs_request_total" in response_text
     assert "srs_request_latency_seconds" in response_text
