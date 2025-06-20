@@ -21,17 +21,10 @@ def test_full_srs_generation_flow(client, mocker):
     """Test the complete flow of SRS generation."""
     # Mock the AI response
     mock_sections = {
-        "introduction": "# Introduction
-This is a test introduction.",
-        "functional_requirements": "# Functional Requirements
-- Requirement 1
-- Requirement 2",
-        "non_functional_requirements": "# Non-Functional Requirements
-1. Performance
-2. Security",
-        "constraints": "# Constraints
-* Technical constraints
-* Business constraints"
+        "introduction": "# Introduction\nThis is a test introduction.",
+        "functional_requirements": "# Functional Requirements\n- Requirement 1\n- Requirement 2",
+        "non_functional_requirements": "# Non-Functional Requirements\n1. Performance\n2. Security",
+        "constraints": "# Constraints\n* Technical constraints\n* Business constraints"
     }
     
     mock_generator = mocker.patch("backend.ai.routes.AIGenerator")
