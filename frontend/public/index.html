@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRS Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SRS Generator</h1>
+            <p>Generate comprehensive Software Requirements Specification documents using AI</p>
+        </header>
+
+        <main>
+            <form id="srsForm" class="srs-form">
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" name="projectName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="targetUsers">Target Users</label>
+                    <input type="text" id="targetUsers" name="targetUsers" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectGoals">Project Goals</label>
+                    <textarea id="projectGoals" name="projectGoals" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectScope">Project Scope</label>
+                    <textarea id="projectScope" name="projectScope" required></textarea>
+                </div>
+
+                <button type="submit">Generate SRS</button>
+            </form>
+
+            <div id="result" class="result-container" style="display: none;">
+                <h2>Generated SRS Document</h2>
+                <div id="srsContent"></div>
+                <button id="downloadBtn" class="download-btn">Download SRS</button>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <p>Generating SRS document...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
