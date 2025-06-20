@@ -2,19 +2,24 @@ from typing import Dict, Any
 import openai
 from flask import current_app
 
+
 class AIGeneratorError(Exception):
     """Custom exception for AI generation errors."""
+
     pass
+
 
 class AIGenerator:
     """Handles AI-powered SRS document generation."""
-    
+
     def __init__(self):
         try:
-            self.client = openai.OpenAI(api_key=current_app.config["OPENROUTER_API_KEY"])
+            self.client = openai.OpenAI(
+                api_key=current_app.config["OPENROUTER_API_KEY"]
+            )
         except Exception as e:
             raise AIGeneratorError(f"Failed to initialize OpenAI client: {str(e)}")
-    
+
     def generate_section(self, system_prompt: str, user_prompt: str) -> str:
         """Generate a specific section of the SRS document."""
         try:
@@ -22,10 +27,10 @@ class AIGenerator:
                 model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
+                    {"role": "user", "content": user_prompt},
                 ],
                 temperature=0.7,
-                max_tokens=1000
+                max_tokens=1000,
             )
             return response.choices[0].message.content
         except Exception as e:
@@ -37,9 +42,13 @@ class AIGenerator:
         try:
             sections = {
                 "introduction": self._generate_introduction(project_data),
-                "functional_requirements": self._generate_functional_requirements(project_data),
-                "non_functional_requirements": self._generate_non_functional_requirements(project_data),
-                "constraints": self._generate_constraints(project_data)
+                "functional_requirements": self._generate_functional_requirements(
+                    project_data
+                ),
+                "non_functional_requirements": self._generate_non_functional_requirements(
+                    project_data
+                ),
+                "constraints": self._generate_constraints(project_data),
             }
             return sections
         except Exception as e:
@@ -65,7 +74,9 @@ class AIGenerator:
         """
         return self.generate_section(system_prompt, user_prompt)
 
-    def _generate_non_functional_requirements(self, project_data: Dict[str, Any]) -> str:
+    def _generate_non_functional_requirements(
+        self, project_data: Dict[str, Any]
+    ) -> str:
         system_prompt = "You are an expert in software quality attributes. Specify non-functional requirements covering performance, security, reliability, and usability."
         user_prompt = f"""Generate non-functional requirements for the following project:
         Project Name: {project_data["projectName"]}
