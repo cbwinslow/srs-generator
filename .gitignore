@@ -52,3 +52,4 @@ yarn-error.log*
 # Operating System
 .DS_Store
 Thumbs.db
+logs/
