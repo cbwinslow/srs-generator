@@ -89,3 +89,91 @@ button:hover {
 .download-btn:hover {
     background-color: #218838;
 }
+.srs-document {
+    margin-top: 20px;
+}
+
+.srs-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.srs-section h3 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.section-content {
+    color: #333;
+    line-height: 1.6;
+}
+
+.section-content p {
+    margin: 0 0 15px 0;
+}
+
+.section-content ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.section-content li {
+    margin-bottom: 5px;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.loading::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #27ae60;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.download-btn:hover {
+    background-color: #219a52;
+}
+
+.error {
+    color: #e74c3c;
+    padding: 10px;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    margin: 10px 0;
+    background-color: #fdf3f2;
+}
