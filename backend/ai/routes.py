@@ -8,7 +8,10 @@ def generate_srs():
     """Generate a complete SRS document based on project information."""
     data = request.get_json()
     if not data:
-        return jsonify({"error": "No data provided"}), 400
+        return jsonify({
+            "error": "No data provided",
+            "missing_fields": ["projectName", "targetUsers", "projectGoals", "projectScope"]
+        }), 400
         
     required_fields = ["projectName", "targetUsers", "projectGoals", "projectScope"]
     missing_fields = [field for field in required_fields if field not in data]
