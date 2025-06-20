@@ -6,13 +6,13 @@ bp = Blueprint("ai", __name__, url_prefix="/api/v1")
 @bp.route("/generate_srs", methods=["POST"])
 def generate_srs():
     """Generate a complete SRS document based on project information."""
-    data = request.get_json()
-    if not data:
+    if not request.is_json:
         return jsonify({
-            "error": "No data provided",
+            "error": "Content-Type must be application/json",
             "missing_fields": ["projectName", "targetUsers", "projectGoals", "projectScope"]
         }), 400
-        
+
+    data = request.get_json(silent=True) or {}
     required_fields = ["projectName", "targetUsers", "projectGoals", "projectScope"]
     missing_fields = [field for field in required_fields if field not in data]
     
