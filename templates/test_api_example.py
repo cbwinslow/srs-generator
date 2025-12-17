@@ -169,6 +169,7 @@ def main():
         f.write("# Make sure the SRS Generator is running on http://localhost:5000\n\n")
         f.write(generate_curl_command(data))
         f.write("\n")
+    # Make file executable (rwxr-xr-x)
     os.chmod(curl_file, 0o755)
     print(f"✓ Saved curl script to: {curl_file}")
     
@@ -185,6 +186,7 @@ def main():
         f.write('if __name__ == "__main__":\n')
         f.write('    # Main block intentionally left empty: example code runs on import.\n')
         f.write('    pass\n')
+    # Make file executable (rwxr-xr-x)
     os.chmod(python_file, 0o755)
     print(f"✓ Saved Python script to: {python_file}")
     
