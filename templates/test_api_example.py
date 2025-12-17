@@ -66,13 +66,15 @@ def create_example_request():
 def generate_curl_command(data):
     """Generate a curl command for the API request."""
     
-    json_data = json.dumps(data, indent=2)
+    # Use compact JSON and escape for safe embedding in double-quoted string
+    json_data = json.dumps(data, separators=(",", ":"))
+    escaped_json_data = json_data.replace('"', '\\"')
     
     curl_command = f"""
 # Example curl command to generate SRS
 curl -X POST http://localhost:5000/api/v1/generate_srs \\
   -H "Content-Type: application/json" \\
-  -d '{json_data}'
+  -d "{escaped_json_data}"
     """.strip()
     
     return curl_command
@@ -157,13 +159,13 @@ def main():
     
     # Save JSON
     json_file = os.path.join(output_dir, 'example_request.json')
-    with open(json_file, 'w') as f:
+    with open(json_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2)
     print(f"✓ Saved JSON example to: {json_file}")
     
     # Save curl script
     curl_file = os.path.join(output_dir, 'example_curl.sh')
-    with open(curl_file, 'w') as f:
+    with open(curl_file, 'w', encoding='utf-8') as f:
         f.write("#!/bin/bash\n\n")
         f.write("# Example curl command to generate SRS document\n")
         f.write("# Make sure the SRS Generator is running on http://localhost:5000\n\n")
@@ -175,7 +177,7 @@ def main():
     
     # Save Python script
     python_file = os.path.join(output_dir, 'example_python.py')
-    with open(python_file, 'w') as f:
+    with open(python_file, 'w', encoding='utf-8') as f:
         f.write("#!/usr/bin/env python3\n")
         f.write('"""\n')
         f.write("Example Python script to generate SRS via API\n")

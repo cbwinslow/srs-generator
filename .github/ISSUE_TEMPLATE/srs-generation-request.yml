@@ -13,6 +13,7 @@ body:
 
   - type: input
     id: project-name
+    # Note: GitHub form IDs use kebab-case. When mapping to API, convert to camelCase (projectName)
     attributes:
       label: Project Name
       description: What is the name of your project?
@@ -22,6 +23,7 @@ body:
 
   - type: textarea
     id: target-users
+    # Note: Maps to API field 'targetUsers' (camelCase)
     attributes:
       label: Target Users
       description: Who are the intended users of this project?
@@ -31,6 +33,7 @@ body:
 
   - type: textarea
     id: project-goals
+    # Note: Maps to API field 'projectGoals' (camelCase)
     attributes:
       label: Project Goals
       description: What are the main objectives and goals of this project?
@@ -44,6 +47,7 @@ body:
 
   - type: textarea
     id: project-scope
+    # Note: Maps to API field 'projectScope' (camelCase)
     attributes:
       label: Project Scope
       description: What is included and excluded from this project?
@@ -62,6 +66,7 @@ body:
 
   - type: textarea
     id: technical-constraints
+    # Note: Maps to API field 'technicalConstraints' (camelCase) if used
     attributes:
       label: Technical Constraints (Optional)
       description: Are there any specific technical constraints or requirements?
@@ -73,6 +78,7 @@ body:
 
   - type: textarea
     id: business-constraints
+    # Note: Maps to API field 'businessConstraints' (camelCase) if used
     attributes:
       label: Business Constraints (Optional)
       description: Are there any business constraints or requirements?

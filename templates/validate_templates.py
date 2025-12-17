@@ -13,7 +13,7 @@ import sys
 def validate_yaml_template(filepath):
     """Validate a YAML template file."""
     try:
-        with open(filepath, 'r') as f:
+        with open(filepath, 'r', encoding='utf-8') as f:
             data = yaml.safe_load(f)
         
         # Check required fields for GitHub issue templates
@@ -59,7 +59,7 @@ def validate_yaml_template(filepath):
 def validate_markdown_template(filepath):
     """Validate a Markdown template file."""
     try:
-        with open(filepath, 'r') as f:
+        with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
         
         # Check for front matter

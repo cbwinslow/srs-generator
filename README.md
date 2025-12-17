@@ -175,7 +175,9 @@ SRSGenerator/
 ├── templates/            # Project management templates
 │   ├── README.md         # Template documentation
 │   ├── LINEAR_TEMPLATE.md # Linear issue template
-│   └── EXAMPLE_FILLED.md  # Example filled template
+│   ├── EXAMPLE_FILLED.md  # Example filled template
+│   ├── validate_templates.py # Template validation utility
+│   └── test_api_example.py   # API example generator
 ├── tests/                # Test suite
 │   ├── unit/            # Unit tests
 │   └── integration/     # Integration tests
