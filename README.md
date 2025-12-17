@@ -7,13 +7,16 @@ An AI-powered Software Requirements Specification document generator that uses m
 - 🤖 AI-powered generation of SRS sections
 - 🌐 Web-based interface for inputting project details
 - 📋 GitHub and Linear issue templates for standardized requests
+- 💻 **CLI tool for downloading and syncing documents** (uvx/pipx compatible)
+- 🔄 **GitHub Issues and Projects v2 sync** (pull/push/sync)
 - 📄 Markdown export functionality
 - 🐳 Docker support for easy deployment
-- 🔄 REST API for programmatic access
+- 🔌 REST API for programmatic access
 - 📊 Real-time document preview
 
 ## Documentation
 
+- **[CLI Guide](CLI_GUIDE.md)** - **NEW!** CLI tool for downloading and syncing SRS documents with GitHub
 - **[Usage Guide](USAGE_GUIDE.md)** - Complete guide on using the SRS Generator
 - **[Template Guide](templates/README.md)** - Documentation for GitHub and Linear templates
 - **[Example Template](templates/EXAMPLE_FILLED.md)** - Filled example for reference
@@ -91,6 +94,45 @@ Run linting:
 ```bash
 flake8 .
 ```
+
+## CLI Tool
+
+The SRS CLI tool allows you to download, initialize, and sync SRS documents with GitHub directly from the command line.
+
+### Installation
+
+```bash
+# Using uvx (recommended)
+uvx srs-cli --help
+
+# Or with pipx
+pipx install git+https://github.com/cbwinslow/srs-generator.git
+
+# Or with pip
+pip install git+https://github.com/cbwinslow/srs-generator.git
+```
+
+### Quick Start
+
+```bash
+# Initialize a new SRS document
+srs-cli init
+
+# Pull issues from GitHub
+export GITHUB_TOKEN="your_token"
+srs-cli pull-issues --repo owner/repo
+
+# Pull Projects v2 items
+srs-cli pull-projects --repo owner/repo
+
+# Push SRS as GitHub issue
+srs-cli push-issue --repo owner/repo --title "SRS v1.0" --file SRS.md
+
+# Sync with GitHub (uses .srs-config.json)
+srs-cli sync
+```
+
+See **[CLI_GUIDE.md](CLI_GUIDE.md)** for complete documentation.
 
 ## Templates
 
