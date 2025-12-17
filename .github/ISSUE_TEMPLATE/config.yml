@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📚 Documentation
+    url: https://github.com/cbwinslow/srs-generator/blob/main/README.md
+    about: View the project documentation and usage guide
+  - name: 💡 Feature Request
+    url: https://github.com/cbwinslow/srs-generator/issues/new
+    about: Suggest new features or improvements

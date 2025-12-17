@@ -1,0 +1,120 @@
+name: SRS Generation Request
+description: Request generation of a Software Requirements Specification document
+title: "[SRS] "
+labels: ["srs-generation", "documentation"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Request SRS Document Generation
+        
+        Fill out the information below to generate a comprehensive Software Requirements Specification document for your project.
+        
+  - type: input
+    id: project-name
+    attributes:
+      label: Project Name
+      description: What is the name of your project?
+      placeholder: e.g., Mobile Shopping App
+    validations:
+      required: true
+      
+  - type: textarea
+    id: target-users
+    attributes:
+      label: Target Users
+      description: Who are the intended users of this project?
+      placeholder: e.g., Online shoppers aged 18-45, mobile-first users, tech-savvy consumers
+    validations:
+      required: true
+      
+  - type: textarea
+    id: project-goals
+    attributes:
+      label: Project Goals
+      description: What are the main objectives and goals of this project?
+      placeholder: |
+        e.g., 
+        - Provide seamless mobile shopping experience
+        - Increase user engagement by 30%
+        - Reduce checkout time to under 2 minutes
+    validations:
+      required: true
+      
+  - type: textarea
+    id: project-scope
+    attributes:
+      label: Project Scope
+      description: What is included and excluded from this project?
+      placeholder: |
+        Included:
+        - User authentication
+        - Product catalog browsing
+        - Shopping cart functionality
+        - Payment processing
+        
+        Excluded:
+        - Physical store integration
+        - Inventory management
+    validations:
+      required: true
+      
+  - type: textarea
+    id: technical-constraints
+    attributes:
+      label: Technical Constraints (Optional)
+      description: Are there any specific technical constraints or requirements?
+      placeholder: |
+        e.g.,
+        - Must support iOS 14+ and Android 10+
+        - Backend must use Python/Flask
+        - Database must be PostgreSQL
+        
+  - type: textarea
+    id: business-constraints
+    attributes:
+      label: Business Constraints (Optional)
+      description: Are there any business constraints or requirements?
+      placeholder: |
+        e.g.,
+        - Must launch within 6 months
+        - Budget limit of $100k
+        - Must comply with GDPR
+        
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: What is the priority of this SRS generation request?
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+      default: 1
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: sections
+    attributes:
+      label: Required Sections
+      description: Which sections should be included in the SRS document?
+      options:
+        - label: Introduction & Purpose
+          required: false
+        - label: Functional Requirements
+          required: false
+        - label: Non-Functional Requirements
+          required: false
+        - label: System Constraints
+          required: false
+        - label: Use Cases & User Stories
+          required: false
+        - label: System Architecture
+          required: false
+        - label: Data Requirements
+          required: false
+        - label: External Interfaces
+          required: false

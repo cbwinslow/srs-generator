@@ -83,22 +83,54 @@ Run linting:
 flake8 .
 ```
 
+## Templates
+
+The project includes templates for integration with GitHub and Linear:
+
+### GitHub Templates
+
+- **Issue Templates**: Located in `.github/ISSUE_TEMPLATE/`
+  - `srs-generation-request.yml` - Request SRS document generation
+  - `bug_report.md` - Report bugs
+  - `feature_request.md` - Suggest features
+- **Pull Request Template**: `.github/PULL_REQUEST_TEMPLATE.md`
+
+### Linear Template
+
+- Located in `templates/LINEAR_TEMPLATE.md`
+- Ready to copy into Linear workspace for issue creation
+
+### Using Templates
+
+1. **GitHub**: Go to Issues → New Issue → Select template
+2. **Linear**: Settings → Templates → Create new → Paste content from `LINEAR_TEMPLATE.md`
+
+See `templates/README.md` for detailed documentation and `templates/EXAMPLE_FILLED.md` for a complete example.
+
 ## Project Structure
 
 ```
 SRSGenerator/
-├── backend/                 # Flask backend
-│   ├── ai/                 # AI integration
-│   ├── models/             # Database models
-│   └── templates/          # Flask templates
-├── frontend/               # Frontend assets
-│   └── public/             # Static files
-├── tests/                  # Test suite
-│   ├── unit/              # Unit tests
-│   └── integration/       # Integration tests
-├── nginx/                  # Nginx configuration
-├── Dockerfile             # Production Docker config
-└── docker-compose.yml     # Docker composition
+├── .github/                # GitHub configuration
+│   ├── ISSUE_TEMPLATE/    # Issue templates
+│   ├── workflows/         # CI/CD workflows
+│   └── PULL_REQUEST_TEMPLATE.md
+├── backend/               # Flask backend
+│   ├── ai/               # AI integration
+│   ├── models/           # Database models
+│   └── monitoring.py     # Metrics and monitoring
+├── frontend/             # Frontend assets
+│   └── public/           # Static files
+├── templates/            # Project management templates
+│   ├── README.md         # Template documentation
+│   ├── LINEAR_TEMPLATE.md # Linear issue template
+│   └── EXAMPLE_FILLED.md  # Example filled template
+├── tests/                # Test suite
+│   ├── unit/            # Unit tests
+│   └── integration/     # Integration tests
+├── nginx/                # Nginx configuration
+├── Dockerfile            # Production Docker config
+└── docker-compose.yml    # Docker composition
 ```
 
 ## Contributing
