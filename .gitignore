@@ -53,3 +53,9 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 logs/
+
+# Generated examples (keep generator scripts, ignore outputs)
+templates/example_request.json
+templates/example_curl.sh
+templates/example_python.py
+generated_srs.md
