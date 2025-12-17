@@ -4,11 +4,20 @@ An AI-powered Software Requirements Specification document generator that uses m
 
 ## Features
 
-- Web-based interface for inputting project details
-- AI-powered generation of SRS sections
-- Multiple specialized AI models for different aspects of requirements
-- Markdown export functionality
-- Docker support for easy deployment
+- 🤖 AI-powered generation of SRS sections
+- 🌐 Web-based interface for inputting project details
+- 📋 GitHub and Linear issue templates for standardized requests
+- 📄 Markdown export functionality
+- 🐳 Docker support for easy deployment
+- 🔄 REST API for programmatic access
+- 📊 Real-time document preview
+
+## Documentation
+
+- **[Usage Guide](USAGE_GUIDE.md)** - Complete guide on using the SRS Generator
+- **[Template Guide](templates/README.md)** - Documentation for GitHub and Linear templates
+- **[Example Template](templates/EXAMPLE_FILLED.md)** - Filled example for reference
+- **[SRS Example](SRS.md)** - Sample generated SRS document
 
 ## Quick Start
 
