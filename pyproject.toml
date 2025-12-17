@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "srs-cli"
+version = "1.0.0"
+description = "CLI tool for managing and syncing SRS documents with GitHub"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "SRS Generator Team"}
+]
+keywords = ["srs", "requirements", "specification", "github", "cli"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-mock>=3.14.1",
+    "black>=23.7.0",
+    "flake8>=6.1.0",
+]
+
+[project.scripts]
+srs-cli = "srs_cli:main"
+
+[project.urls]
+Homepage = "https://github.com/cbwinslow/srs-generator"
+Repository = "https://github.com/cbwinslow/srs-generator"
+Documentation = "https://github.com/cbwinslow/srs-generator/blob/main/USAGE_GUIDE.md"
+Issues = "https://github.com/cbwinslow/srs-generator/issues"
+
+[tool.setuptools]
+py-modules = ["srs_cli"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"

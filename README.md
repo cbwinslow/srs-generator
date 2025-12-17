@@ -4,11 +4,23 @@ An AI-powered Software Requirements Specification document generator that uses m
 
 ## Features
 
-- Web-based interface for inputting project details
-- AI-powered generation of SRS sections
-- Multiple specialized AI models for different aspects of requirements
-- Markdown export functionality
-- Docker support for easy deployment
+- 🤖 AI-powered generation of SRS sections
+- 🌐 Web-based interface for inputting project details
+- 📋 GitHub and Linear issue templates for standardized requests
+- 💻 **CLI tool for downloading and syncing documents** (uvx/pipx compatible)
+- 🔄 **GitHub Issues and Projects v2 sync** (pull/push/sync)
+- 📄 Markdown export functionality
+- 🐳 Docker support for easy deployment
+- 🔌 REST API for programmatic access
+- 📊 Real-time document preview
+
+## Documentation
+
+- **[CLI Guide](CLI_GUIDE.md)** - **NEW!** CLI tool for downloading and syncing SRS documents with GitHub
+- **[Usage Guide](USAGE_GUIDE.md)** - Complete guide on using the SRS Generator
+- **[Template Guide](templates/README.md)** - Documentation for GitHub and Linear templates
+- **[Example Template](templates/EXAMPLE_FILLED.md)** - Filled example for reference
+- **[SRS Example](SRS.md)** - Sample generated SRS document
 
 ## Quick Start
 
@@ -83,22 +95,95 @@ Run linting:
 flake8 .
 ```
 
+## CLI Tool
+
+The SRS CLI tool allows you to download, initialize, and sync SRS documents with GitHub directly from the command line.
+
+### Installation
+
+```bash
+# Using uvx (recommended)
+uvx srs-cli --help
+
+# Or with pipx
+pipx install git+https://github.com/cbwinslow/srs-generator.git
+
+# Or with pip
+pip install git+https://github.com/cbwinslow/srs-generator.git
+```
+
+### Quick Start
+
+```bash
+# Initialize a new SRS document
+srs-cli init
+
+# Pull issues from GitHub
+export GITHUB_TOKEN="your_token"
+srs-cli pull-issues --repo owner/repo
+
+# Pull Projects v2 items
+srs-cli pull-projects --repo owner/repo
+
+# Push SRS as GitHub issue
+srs-cli push-issue --repo owner/repo --title "SRS v1.0" --file SRS.md
+
+# Sync with GitHub (uses .srs-config.json)
+srs-cli sync
+```
+
+See **[CLI_GUIDE.md](CLI_GUIDE.md)** for complete documentation.
+
+## Templates
+
+The project includes templates for integration with GitHub and Linear:
+
+### GitHub Templates
+
+- **Issue Templates**: Located in `.github/ISSUE_TEMPLATE/`
+  - `srs-generation-request.yml` - Request SRS document generation
+  - `bug_report.md` - Report bugs
+  - `feature_request.md` - Suggest features
+- **Pull Request Template**: `.github/PULL_REQUEST_TEMPLATE.md`
+
+### Linear Template
+
+- Located in `templates/LINEAR_TEMPLATE.md`
+- Ready to copy into Linear workspace for issue creation
+
+### Using Templates
+
+1. **GitHub**: Go to Issues → New Issue → Select template
+2. **Linear**: Settings → Templates → Create new → Paste content from `LINEAR_TEMPLATE.md`
+
+See `templates/README.md` for detailed documentation and `templates/EXAMPLE_FILLED.md` for a complete example.
+
 ## Project Structure
 
 ```
 SRSGenerator/
-├── backend/                 # Flask backend
-│   ├── ai/                 # AI integration
-│   ├── models/             # Database models
-│   └── templates/          # Flask templates
-├── frontend/               # Frontend assets
-│   └── public/             # Static files
-├── tests/                  # Test suite
-│   ├── unit/              # Unit tests
-│   └── integration/       # Integration tests
-├── nginx/                  # Nginx configuration
-├── Dockerfile             # Production Docker config
-└── docker-compose.yml     # Docker composition
+├── .github/                # GitHub configuration
+│   ├── ISSUE_TEMPLATE/    # Issue templates
+│   ├── workflows/         # CI/CD workflows
+│   └── PULL_REQUEST_TEMPLATE.md
+├── backend/               # Flask backend
+│   ├── ai/               # AI integration
+│   ├── models/           # Database models
+│   └── monitoring.py     # Metrics and monitoring
+├── frontend/             # Frontend assets
+│   └── public/           # Static files
+├── templates/            # Project management templates
+│   ├── README.md         # Template documentation
+│   ├── LINEAR_TEMPLATE.md # Linear issue template
+│   ├── EXAMPLE_FILLED.md  # Example filled template
+│   ├── validate_templates.py # Template validation utility
+│   └── test_api_example.py   # API example generator
+├── tests/                # Test suite
+│   ├── unit/            # Unit tests
+│   └── integration/     # Integration tests
+├── nginx/                # Nginx configuration
+├── Dockerfile            # Production Docker config
+└── docker-compose.yml    # Docker composition
 ```
 
 ## Contributing
