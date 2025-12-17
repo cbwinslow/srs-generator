@@ -183,8 +183,8 @@ def main():
         f.write(generate_python_code(data))
         f.write("\n\n")
         f.write('if __name__ == "__main__":\n')
-        f.write('    # Run the example\n')
-        f.write('    pass  # Code above runs on import\n')
+        f.write('    # Main block intentionally left empty: example code runs on import.\n')
+        f.write('    pass\n')
     os.chmod(python_file, 0o755)
     print(f"✓ Saved Python script to: {python_file}")
     
