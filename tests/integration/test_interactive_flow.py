@@ -175,9 +175,15 @@ def test_complete_interactive_flow(client, mocker):
     mock_sections = {
         "introduction": "## Introduction\n\nThis is a fitness tracking mobile application...",
         "system_description": "## System Description\n\nThe system provides workout tracking...",
-        "functional_requirements": "## Functional Requirements\n\nFR1: Users shall be able to log workouts...",
-        "non_functional_requirements": "## Non-Functional Requirements\n\nNFR1: System shall load in under 2 seconds...",
-        "user_interface": "## User Interface\n\nThe app will have a clean, minimal iOS and Android interface...",
+        "functional_requirements": (
+            "## Functional Requirements\n\nFR1: Users shall be able to log workouts..."
+        ),
+        "non_functional_requirements": (
+            "## Non-Functional Requirements\n\nNFR1: System shall load in under 2 seconds..."
+        ),
+        "user_interface": (
+            "## User Interface\n\nThe app will have a clean, minimal iOS and Android interface..."
+        ),
         "constraints": "## Constraints\n\nTechnical: React Native, Firebase backend...",
     }
     mock_agent.generate_complete_srs.return_value = mock_sections
