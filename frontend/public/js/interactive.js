@@ -174,6 +174,7 @@ function addErrorMessage(message) {
     contentDiv.style.background = '#ffebee';
     contentDiv.style.borderColor = '#ef5350';
     contentDiv.style.color = '#c62828';
+    // Use textContent to prevent XSS
     contentDiv.textContent = '⚠️ ' + message;
     
     messageDiv.appendChild(contentDiv);
@@ -246,7 +247,8 @@ function handleCompletion(sections) {
  */
 function downloadSRS() {
     if (!generatedSRS) {
-        alert('No SRS document available to download.');
+        // Show error in chat instead of alert
+        addErrorMessage('No SRS document available to download.');
         return;
     }
     
@@ -308,13 +310,26 @@ function buildMarkdownDocument(sections) {
 }
 
 /**
+ * Escape HTML to prevent XSS attacks
+ */
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+/**
  * Format message text with basic markdown support
+ * Escapes HTML to prevent XSS while allowing safe markdown formatting
  */
 function formatMessage(text) {
     if (!text) return '';
     
-    // Convert markdown to HTML
-    let formatted = text
+    // First escape HTML to prevent XSS
+    let formatted = escapeHtml(text);
+    
+    // Then apply markdown formatting
+    formatted = formatted
         // Bold
         .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
         // Italic

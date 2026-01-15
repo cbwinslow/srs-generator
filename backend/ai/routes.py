@@ -4,7 +4,11 @@ from .interactive_agent import InteractiveAgent
 
 bp = Blueprint("ai", __name__, url_prefix="/api/v1")
 
-# Store active agent sessions (in production, use Redis or similar)
+# Store active agent sessions
+# NOTE: In production, use Redis or a similar persistent store to:
+# - Maintain state across server restarts
+# - Enable horizontal scaling with multiple server instances
+# - Implement session expiration and cleanup
 agent_sessions = {}
 
 

@@ -189,55 +189,11 @@ class InteractiveAgent:
         Returns:
             dict: Extracted and structured information
         """
-        try:
-            # Use AI to extract and structure information
-            extraction_prompt = (
-                f"Based on the user's input, extract relevant information "
-                f"for an SRS document.\n\n"
-                f'User input: "{user_input}"\n\n'
-                f"Previously collected data: {existing_data}\n\n"
-                f"Extract any new information about:\n"
-                f"- Project overview (name, purpose, users)\n"
-                f"- Functional requirements (features, capabilities)\n"
-                f"- Non-functional requirements (performance, security, "
-                f"reliability)\n"
-                f"- User interface requirements\n"
-                f"- Technical constraints\n\n"
-                f"Return the information in a structured format. Only include "
-                f"fields that are clearly mentioned or implied in the user's "
-                f"input."
-            )
-
-            # Use AI to analyze the input (response available for future enhancement)
-            self.client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {
-                        "role": "system",
-                        "content": (
-                            "You are an expert at extracting structured "
-                            "information from natural language. Return "
-                            "responses in a clear, parseable format."
-                        ),
-                    },
-                    {"role": "user", "content": extraction_prompt},
-                ],
-                temperature=0.3,
-                max_tokens=500,
-            )
-
-            # Parse the AI response to extract structured data
-            # In production, this could use more sophisticated NLP
-            # For now, we'll append to a notes field and let the
-            # final generation use it
-            return {
-                "raw_notes": existing_data.get("raw_notes", []) + [user_input]
-            }
-
-        except Exception as e:
-            current_app.logger.error(f"Error extracting information: {str(e)}")
-            # Fall back to storing raw input
-            return {"raw_notes": existing_data.get("raw_notes", []) + [user_input]}
+        # Store raw user input for comprehensive context
+        # The full conversation history will be used when generating
+        # the final SRS document, allowing the AI to understand the
+        # complete project context
+        return {"raw_notes": existing_data.get("raw_notes", []) + [user_input]}
 
     def _calculate_progress(self, collected_data: Dict[str, Any]) -> Dict[str, Any]:
         """
