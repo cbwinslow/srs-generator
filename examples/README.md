@@ -4,7 +4,28 @@ This directory contains examples demonstrating various features of the SRS Gener
 
 ## Available Examples
 
-### 1. CLI Tool Demo (`cli_demo.sh`)
+### 1. Interactive Mode API (`interactive_mode_example.py`) 🆕
+
+Demonstrates the conversational AI agent for guided SRS generation.
+
+```bash
+# Make sure the server is running first
+docker-compose up
+# or
+./run.sh
+
+# Then run the example in another terminal
+python3 interactive_mode_example.py
+```
+
+**What it shows:**
+- Starting an interactive session
+- Having a conversation with the AI agent
+- Progressive information gathering
+- Automatic SRS document generation
+- Saving the generated document
+
+### 2. CLI Tool Demo (`cli_demo.sh`)
 
 Demonstrates the command-line interface for managing SRS documents.
 
@@ -36,6 +57,20 @@ python3 github_sync_example.py
 - Error handling
 
 ## Prerequisites
+
+### For Interactive Mode Examples
+
+The server must be running:
+
+```bash
+# Option 1: Using Docker (recommended)
+docker-compose up
+
+# Option 2: Local development
+./run.sh
+```
+
+The example will connect to `http://localhost:5000` by default.
 
 ### For CLI Examples
 
@@ -213,6 +248,7 @@ pip install -e /path/to/srs-generator
 
 ## Additional Resources
 
+- **[Interactive Mode Guide](../INTERACTIVE_MODE_GUIDE.md)** - Conversational agent guide
 - **[CLI_GUIDE.md](../CLI_GUIDE.md)** - Complete CLI documentation
 - **[USAGE_GUIDE.md](../USAGE_GUIDE.md)** - Web interface guide
 - **[templates/README.md](../templates/README.md)** - Template documentation

@@ -5,6 +5,7 @@ An AI-powered Software Requirements Specification document generator that uses m
 ## Features
 
 - 🤖 AI-powered generation of SRS sections
+- 💬 **NEW: Interactive conversational mode** - AI agent guides you through SRS creation
 - 🌐 Web-based interface for inputting project details
 - 📋 GitHub and Linear issue templates for standardized requests
 - 💻 **CLI tool for downloading and syncing documents** (uvx/pipx compatible)
@@ -16,6 +17,7 @@ An AI-powered Software Requirements Specification document generator that uses m
 
 ## Documentation
 
+- **[Interactive Mode Guide](INTERACTIVE_MODE_GUIDE.md)** - **NEW!** Guide to using the conversational AI agent
 - **[CLI Guide](CLI_GUIDE.md)** - **NEW!** CLI tool for downloading and syncing SRS documents with GitHub
 - **[Usage Guide](USAGE_GUIDE.md)** - Complete guide on using the SRS Generator
 - **[Template Guide](templates/README.md)** - Documentation for GitHub and Linear templates
@@ -44,6 +46,23 @@ An AI-powered Software Requirements Specification document generator that uses m
    ```
 
 4. Access the application at `http://localhost`
+
+### Using the Interactive Mode
+
+The new **Interactive Mode** provides a conversational AI agent that guides you through creating your SRS document:
+
+1. Navigate to `http://localhost/interactive.html` (or click "Try Interactive Mode" on the home page)
+2. The AI agent will start a conversation and ask relevant questions
+3. Answer naturally - the agent adapts its questions based on your responses
+4. Track your progress with the visual progress bar
+5. Once complete, download your comprehensive SRS document
+
+**Benefits of Interactive Mode:**
+- No need to know what information to provide upfront
+- AI guides you through all required sections
+- Natural conversation instead of filling forms
+- Automatically validates completeness
+- Generates more detailed and complete documents
 
 ### Manual Setup
 
