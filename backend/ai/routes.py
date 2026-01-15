@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, current_app, session
+from flask import Blueprint, request, jsonify, current_app
 from .generator import AIGenerator, AIGeneratorError
 from .interactive_agent import InteractiveAgent
 
