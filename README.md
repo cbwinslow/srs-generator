@@ -24,6 +24,10 @@ An AI-powered Software Requirements Specification document generator that uses m
 - **[Example Template](templates/EXAMPLE_FILLED.md)** - Filled example for reference
 - **[SRS Example](SRS.md)** - Sample generated SRS document
 
+### Related Tools
+
+- **[MySpec](https://myspec.dev)** - Web and MCP-native spec generation platform. Conducts an interactive requirements interview and compiles a 4-file bundle (`constitution.md`, `requirements.md`, `solution.md`, `tasks.md`) for humans and AI agents (`@myspec/mcp-server`). Free tier includes 20 projects and 100 spec files.
+
 ## Quick Start
 
 ### Using Docker (Recommended)
